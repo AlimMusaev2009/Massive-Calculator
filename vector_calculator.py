@@ -1,27 +1,27 @@
-import numpy as np
+vec1 = [1,2]
+vec2 = [3,4]
 
-v1 = []
-v2 = []
-output = []
+position = [1,1]
 
-s = str(input("значения первого вектора (через зарятую):"))
-v1 += s.split(',')
-for i in range(len(v1)):
-    output += int(v1[i])
-v1 = output
-output = []
-s = str(input("значения первого вектора (через зарятую):"))
-v2 += s.split(',')
-for i in range(len(v2)):
-    output += int(v2[i])
-v2 = output
-output = []
-if len(v1) != len(v2) or len(v1) == 4:
-    print("ОНИ ДОЛЖНЫ БЫТЬ ОДИНАКОВЫЕ")
+def move(start_Point, vecTOR):
+    end_Point = []
+    for i in range(len(start_Point)):
+        end_Point += [start_Point[i] + vecTOR[i]]
+    return end_Point
 
-v1 = np.array(v1)
-v2 = np.array(v2)
+def vector_len(new_move, position):
+    vector_len = 0
+    for i in range(len(new_move)):
+        costruct = position[i] - new_move[i]
+    for j in range(len(new_move)):
+        vector_len = costruct[j] ** 2
+    vector_len = vector_len ** 0.5
+        
+        
+            
+        
+        
+    
+new_move = move(position, vec1)
+last_move = move(new_move, vec2)
 
-print("Сумма:", v1 + v2)
-print("Умножение", v1 @ v2)
-print("Совпадение", np.cross(v1, v2))
